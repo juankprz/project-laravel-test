@@ -9,5 +9,5 @@ class Tuser extends Model
 {
     protected $table = 'tipousuarios';
     protected $fillable  = ['nombre'];
-    protected $fillable  = ['nombre'];
+
 }
