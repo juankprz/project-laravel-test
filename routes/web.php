@@ -37,3 +37,7 @@ Route::post('/mensajes', 'SMSController@sendSMS');
 Route::resource('/pagos', 'Pagos');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
