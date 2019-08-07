@@ -32,6 +32,12 @@ class ResetPasswordController extends Controller
      *
      * @return void
      */
+    public function showResetForm(Request $request, $token = null)
+    {
+        return view('auth.passwords.reset')->with(
+            ['token' => $token, 'email' => $request->email]
+        );
+    }
     public function __construct()
     {
         $this->middleware('guest');
