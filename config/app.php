@@ -174,6 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\GuzzleServiceProviders::class,
+
 
         /*
          * Laravel collection
@@ -184,6 +186,7 @@ return [
         aws sdk
         */
         Aws\Laravel\AwsServiceProvider::class,
+
 
     ],
 
@@ -243,6 +246,7 @@ return [
 
         /*aws sdk*/
         'AWS' => Aws\Laravel\AwsFacade::class,
+
 
     ],
 
