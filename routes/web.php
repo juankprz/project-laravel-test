@@ -3,6 +3,10 @@
 
 
 use App\Clases\Guzzle;
+use App\User;
+use GuzzleHttp\Psr7\Request;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,7 +80,7 @@ Route::get('/consulta', function (Guzzle $client) {
 
 
 });
-Route::get('/generar', function () {
+Route::get('/generar', function (Guzzle $client) {
 
     $hora= date_create();
 
@@ -93,11 +97,29 @@ Route::get('/generar', function () {
     2 =>$key,
     3=>$factura,
     4=>$valor,
-    5=>$a
+    5=>$a,
+    6=>$client->ip(),
 
 );
 
 return view('vistas.pasarela', compact('datos'));
 
  });
+ Route::post('response', function (Guzzle $client) {
+
+  $param=$_POST['ref_payco'];
+      $res = $client->iniciar()->request('GET', 'https://secure.epayco.co/validation/v1/reference/'.$param.'' );
+      $valor =$res->getBody()->getContents();
+      $datos = json_decode($valor, true);
+      $f=hash('sha256', env('CUSTOMER_ID')."^".env('KEY_ID')."^".$datos['data']['x_ref_payco'].'^'.$datos['data']['x_transaction_id'].'^'.$datos['data']['x_amount'].'^'.$datos['data']['x_currency_code']);
+
+
+       if( $f ===$datos['data']['x_signature']){
+            echo $datos;
+        }else{
+            echo 'nada';
+        }
+
+    //  return User::all();
+});
 

@@ -16,7 +16,8 @@
         <input name="p_tax" id="p_tax" type="hidden" value="0">
         <input name="p_amount_base" id="p_amount_base" type="hidden" value={{$datos[4]}}>
         <input name="p_test_request" type="hidden" value="TRUE">
-        <input name="p_url_response" type="hidden" value="http://google.com">
+        <input name="p_url_response" type="hidden" value="http://127.0.0.1:8000/response">
+        <input name="p_confirm_method" type="hidden" value="POST">
         <input name="p_url_confirmation" type="hidden" value="">
         <input name="p_signature" type="hidden" id="signature" value="{{$datos[5]}}" />
 
