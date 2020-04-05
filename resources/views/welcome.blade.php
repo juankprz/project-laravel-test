@@ -64,6 +64,14 @@
         </style>
     </head>
     <body>
+    @if(isset($arrays))
+        @foreach ($arrays as $item)
+            {{$item}}
+        @endforeach
+    @endif
+
+
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">

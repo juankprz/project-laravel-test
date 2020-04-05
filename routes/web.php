@@ -5,6 +5,7 @@
 use App\Clases\Guzzle;
 use App\User;
 use GuzzleHttp\Psr7\Request;
+use App\Clases\Operaciones;
 
 
 /*
@@ -115,7 +116,7 @@ return view('vistas.pasarela', compact('datos'));
 
 
        if( $f ===$datos['data']['x_signature']){
-            echo $datos;
+           return view('vistas.respuesta', compact('datos'));
         }else{
             echo 'nada';
         }
@@ -123,3 +124,21 @@ return view('vistas.pasarela', compact('datos'));
     //  return User::all();
 });
 
+Route::post('/usuarios', function () {
+
+    $operaciones=new Operaciones();
+    $a=$operaciones->validacion();
+    echo $a;
+   echo 'sigue el flujo';
+
+
+
+});
+
+Route::get('/vistas', function () {
+
+    return view('vistas.plantilla',compact('arrays'));
+
+
+
+});
