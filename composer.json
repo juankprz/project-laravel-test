@@ -12,7 +12,7 @@
         "aws/aws-sdk-php-laravel": "^3.3",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.5",
-        "laravel/framework": "6.15.*",
+        "laravel/framework": "6.18.*",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^6.0.3",
         "symfony/psr-http-message-bridge": "^2.0"
